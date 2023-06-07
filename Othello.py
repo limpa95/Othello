@@ -594,12 +594,10 @@ class Othello:
         the function prints "Game is ended white piece: number black piece: number" and
         calls the return_winner method."""
 
-        positions = self.return_available_positions(player_color)
 
         if self.return_available_positions("white") == [] and self.return_available_positions("black") == []:
             self.return_winner()
             print("Game is ended white piece: " + str(self._white_count) + " black piece: " + str(self._black_count))
-
 
         if player_color == "black":
             if piece_position not in self.return_available_positions("black") \
@@ -607,10 +605,10 @@ class Othello:
                 print("Here are the valid moves: " + str(self.return_available_positions("black")))
                 return "Invalid move"
 
-            if positions == []:
-                return positions
+            if self.return_available_positions("black") == []:
+                return self.return_available_positions("black")
 
-            if piece_position in positions:
+            if piece_position in self.return_available_positions("black"):
                 self.make_move(player_color, piece_position)
 
         if player_color == "white":
@@ -619,8 +617,8 @@ class Othello:
                 print("Here are the valid moves: " + str(self.return_available_positions("white")))
                 return "Invalid move"
 
-            if positions == []:
-                return positions
+            if self.return_available_positions("white") == []:
+                return self.return_available_positions("white")
 
-            if piece_position in positions:
+            if piece_position in self.return_available_positions("white"):
                 self.make_move(player_color, piece_position)
