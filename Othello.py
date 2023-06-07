@@ -16,7 +16,7 @@ class GameBoard:
         Empty space: . (dot)"""
 
         self._board = [
-            ["*", "*", "*", "*", "*", "*", "*", "*", "*", "*"],   # starting board
+            ["*", "*", "*", "*", "*", "*", "*", "*", "*", "*"],      # starting board
             ["*", ".", ".", ".", ".", ".", ".", ".", ".", "*"],
             ["*", ".", ".", ".", ".", ".", ".", ".", ".", "*"],
             ["*", ".", ".", ".", ".", ".", ".", ".", ".", "*"],
@@ -139,10 +139,6 @@ class Othello:
                     if self._board[index_r_check][index_c] == "X":
                         while self._board[index_r_check - 1][index_c] == "O":
                             index_r_check -= 1
-                        if self._board[index_r_check - 1][index_c] == "X":
-                            return
-                        if self._board[index_r_check - 1][index_c] == "*":
-                            return
                         if self._board[index_r_check - 1][index_c] == "." \
                                 and self._board[index_r_check][index_c] != "X":
                             position = (index_r_check - 1, index_c)
@@ -153,10 +149,6 @@ class Othello:
                     if self._board[index_r_check][index_c] == "O":
                         while self._board[index_r_check - 1][index_c] == "X":
                             index_r_check -= 1
-                        if self._board[index_r_check - 1][index_c] == "O":
-                            return
-                        if self._board[index_r_check - 1][index_c] == "*":
-                            return
                         if self._board[index_r_check - 1][index_c] == "." \
                                 and self._board[index_r_check][index_c] != "O":
                             position = (index_r_check - 1, index_c)
@@ -179,10 +171,6 @@ class Othello:
                     if self._board[index_r][index_c_check] == "X":
                         while self._board[index_r][index_c_check + 1] == "O":
                             index_c_check += 1
-                        if self._board[index_r][index_c_check + 1] == "X":
-                            return
-                        if self._board[index_r][index_c_check + 1] == "*":
-                            return
                         if self._board[index_r][index_c_check + 1] == "." \
                                 and self._board[index_r][index_c_check] != "X":
                             position = (index_r, index_c_check + 1)
@@ -193,10 +181,6 @@ class Othello:
                     if self._board[index_r][index_c_check] == "O":
                         while self._board[index_r][index_c_check + 1] == "X":
                             index_c_check += 1
-                        if self._board[index_r][index_c_check + 1] == "O":
-                            return
-                        if self._board[index_r][index_c_check + 1] == "*":
-                            return
                         if self._board[index_r][index_c_check + 1] == "." \
                                 and self._board[index_r][index_c_check] != "O":
                             position = (index_r, index_c_check + 1)
@@ -219,10 +203,6 @@ class Othello:
                     if self._board[index_r_check][index_c] == "X":
                         while self._board[index_r_check + 1][index_c] == "O":
                             index_r_check += 1
-                        if self._board[index_r_check + 1][index_c] == "X":
-                            return
-                        if self._board[index_r_check + 1][index_c] == "*":
-                            return
                         if self._board[index_r_check + 1][index_c] == "." \
                                 and self._board[index_r_check][index_c] != "X":
                             position = (index_r_check + 1, index_c)
@@ -233,10 +213,6 @@ class Othello:
                     if self._board[index_r_check][index_c] == "O":
                         while self._board[index_r_check + 1][index_c] == "X":
                             index_r_check += 1
-                        if self._board[index_r_check + 1][index_c] == "O":
-                            return
-                        if self._board[index_r_check + 1][index_c] == "*":
-                            return
                         if self._board[index_r_check + 1][index_c] == "." \
                                 and self._board[index_r_check][index_c] != "O":
                             position = (index_r_check + 1, index_c)
@@ -259,10 +235,6 @@ class Othello:
                     if self._board[index_r][index_c_check] == "X":
                         while self._board[index_r][index_c_check - 1] == "O":
                             index_c_check -= 1
-                        if self._board[index_r][index_c_check - 1] == "X":
-                            return
-                        if self._board[index_r][index_c_check - 1] == "*":
-                            return
                         if self._board[index_r][index_c_check - 1] == "." \
                                 and self._board[index_r][index_c_check] != "X":
                             position = (index_r, index_c_check - 1)
@@ -273,10 +245,6 @@ class Othello:
                     if self._board[index_r][index_c_check] == "O":
                         while self._board[index_r][index_c_check - 1] == "X":
                             index_c_check -= 1
-                        if self._board[index_r][index_c_check - 1] == "O":
-                            return
-                        if self._board[index_r][index_c_check - 1] == "*":
-                            return
                         if self._board[index_r][index_c_check - 1] == "." \
                                 and self._board[index_r][index_c_check] != "O":
                             position = (index_r, index_c_check - 1)
@@ -302,10 +270,6 @@ class Othello:
                         while self._board[index_r_check - 1][index_c_check + 1] == "O":
                             index_r_check -= 1
                             index_c_check += 1
-                        if self._board[index_r_check - 1][index_c_check + 1] == "X":
-                            return
-                        if self._board[index_r_check - 1][index_c_check + 1] == "*":
-                            return
                         if self._board[index_r_check - 1][index_c_check + 1] == "." \
                                 and self._board[index_r_check][index_c_check] != "X":
                             position = (index_r_check - 1, index_c_check + 1)
@@ -319,10 +283,6 @@ class Othello:
                         while self._board[index_r_check - 1][index_c_check + 1] == "X":
                             index_r_check -= 1
                             index_c_check += 1
-                        if self._board[index_r_check - 1][index_c_check + 1] == "O":
-                            return
-                        if self._board[index_r_check - 1][index_c_check + 1] == "*":
-                            return
                         if self._board[index_r_check - 1][index_c_check + 1] == "." \
                                 and self._board[index_r_check][index_c_check] != "O":
                             position = (index_r_check - 1, index_c_check + 1)
@@ -349,10 +309,6 @@ class Othello:
                         while self._board[index_r_check + 1][index_c_check + 1] == "O":
                             index_r_check += 1
                             index_c_check += 1
-                        if self._board[index_r_check + 1][index_c_check + 1] == "X":
-                            return
-                        if self._board[index_r_check + 1][index_c_check + 1] == "*":
-                            return
                         if self._board[index_r_check + 1][index_c_check + 1] == "." \
                                 and self._board[index_r_check][index_c_check] != "X":
                             position = (index_r_check + 1, index_c_check + 1)
@@ -366,10 +322,6 @@ class Othello:
                         while self._board[index_r_check + 1][index_c_check + 1] == "X":
                             index_r_check += 1
                             index_c_check += 1
-                        if self._board[index_r_check + 1][index_c_check + 1] == "O":
-                            return
-                        if self._board[index_r_check + 1][index_c_check + 1] == "*":
-                            return
                         if self._board[index_r_check + 1][index_c_check + 1] == "." \
                                 and self._board[index_r_check][index_c_check] != "O":
                             position = (index_r_check + 1, index_c_check + 1)
@@ -396,10 +348,6 @@ class Othello:
                         while self._board[index_r_check - 1][index_c_check - 1] == "O":
                             index_r_check -= 1
                             index_c_check -= 1
-                        if self._board[index_r_check - 1][index_c_check - 1] == "X":
-                            return
-                        if self._board[index_r_check - 1][index_c_check - 1] == "*":
-                            return
                         if self._board[index_r_check - 1][index_c_check - 1] == "." \
                                 and self._board[index_r_check][index_c_check] != "X":
                             position = (index_r_check - 1, index_c_check - 1)
@@ -413,10 +361,6 @@ class Othello:
                         while self._board[index_r_check - 1][index_c_check - 1] == "X":
                             index_r_check -= 1
                             index_c_check -= 1
-                        if self._board[index_r_check - 1][index_c_check - 1] == "O":
-                            return
-                        if self._board[index_r_check - 1][index_c_check - 1] == "*":
-                            return
                         if self._board[index_r_check - 1][index_c_check - 1] == "." \
                                 and self._board[index_r_check][index_c_check] != "O":
                             position = (index_r_check - 1, index_c_check - 1)
@@ -443,10 +387,6 @@ class Othello:
                         while self._board[index_r_check + 1][index_c_check - 1] == "O":
                             index_r_check += 1
                             index_c_check -= 1
-                        if self._board[index_r_check + 1][index_c_check - 1] == "X":
-                            return
-                        if self._board[index_r_check + 1][index_c_check - 1] == "*":
-                            return
                         if self._board[index_r_check + 1][index_c_check - 1] == "." \
                                 and self._board[index_r_check][index_c_check] != "X":
                             position = (index_r_check + 1, index_c_check - 1)
@@ -460,10 +400,6 @@ class Othello:
                         while self._board[index_r_check + 1][index_c_check - 1] == "X":
                             index_r_check += 1
                             index_c_check -= 1
-                        if self._board[index_r_check + 1][index_c_check - 1] == "O":
-                            return
-                        if self._board[index_r_check + 1][index_c_check - 1] == "*":
-                            return
                         if self._board[index_r_check + 1][index_c_check - 1] == "." \
                                 and self._board[index_r_check][index_c_check] != "O":
                             position = (index_r_check + 1, index_c_check - 1)
