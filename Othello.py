@@ -16,7 +16,7 @@ class GameBoard:
         Empty space: . (dot)"""
 
         self._board = [
-            ["*", "*", "*", "*", "*", "*", "*", "*", "*", "*"],      # starting board
+            ["*", "*", "*", "*", "*", "*", "*", "*", "*", "*"],         # starting board
             ["*", ".", ".", ".", ".", ".", ".", ".", ".", "*"],
             ["*", ".", ".", ".", ".", ".", ".", ".", ".", "*"],
             ["*", ".", ".", ".", ".", ".", ".", ".", ".", "*"],
@@ -445,7 +445,7 @@ class Othello:
         then returns the current board(as a 2d list). Used by play_game method but can also be used alone for testing."""
 
         row, column = piece_position
-
+        flip_list = []
         r_check = 0
         c_check = 0
 
@@ -455,60 +455,101 @@ class Othello:
             c_check += column
 
             while self._board[r_check - 1][column] == "O":  # checks up
-                self._board[r_check - 1][column] = "X"
+                flip_list.append((r_check - 1, column))
                 r_check -= 1
+            if self._board[r_check - 1][column] == "X":
+                for u_position in flip_list:
+                    u_row, u_column = u_position
+                    self._board[u_row][u_column] = "X"
+            flip_list.clear()
             r_check = 0
             r_check += row
 
             while self._board[row][c_check + 1] == "O":  # checks right
-                self._board[row][c_check + 1] = "X"
+                flip_list.append((row, c_check + 1))
                 c_check += 1
+            if self._board[row][c_check + 1] == "X":
+                for r_position in flip_list:
+                    r_row, r_column = r_position
+                    self._board[r_row][r_column] = "X"
+            flip_list.clear()
             c_check = 0
             c_check += column
 
             while self._board[r_check + 1][column] == "O":  # checks down
-                self._board[r_check + 1][column] = "X"
+                flip_list.append((r_check + 1, column))
                 r_check += 1
+            if self._board[r_check + 1][column] == "X":
+                for d_position in flip_list:
+                    d_row, d_column = d_position
+                    self._board[d_row][d_column] = "X"
+            flip_list.clear()
             r_check = 0
             r_check += row
 
             while self._board[row][c_check - 1] == "O":  # checks left
-                self._board[row][c_check - 1] = "X"
+                flip_list.append((row, c_check - 1))
                 c_check -= 1
+            if self._board[row][c_check - 1] == "X":
+                for l_position in flip_list:
+                    l_row, l_column = l_position
+                    self._board[l_row][l_column] = "X"
+            flip_list.clear()
             c_check = 0
             c_check += column
 
             while self._board[r_check - 1][c_check + 1] == "O":  # checks diagnonal up right
-                self._board[r_check - 1][c_check + 1] = "X"
+                flip_list.append((r_check - 1, c_check + 1))
                 r_check -= 1
                 c_check += 1
+            if self._board[r_check - 1][c_check + 1] == "X":
+                for ur_position in flip_list:
+                    ur_row, ur_column = ur_position
+                    self._board[ur_row][ur_column] = "X"
+            flip_list.clear()
             r_check = 0
             r_check += row
             c_check = 0
             c_check += column
 
+
             while self._board[r_check + 1][c_check + 1] == "O":  # checks diagnonal down right
-                self._board[r_check + 1][c_check + 1] = "X"
+                flip_list.append((r_check + 1, c_check + 1))
                 r_check += 1
                 c_check += 1
+            if self._board[r_check + 1][c_check + 1] == "X":
+                for dr_position in flip_list:
+                    dr_row, dr_column = dr_position
+                    self._board[dr_row][dr_column] = "X"
+            flip_list.clear()
             r_check = 0
             r_check += row
             c_check = 0
             c_check += column
 
             while self._board[r_check + 1][c_check - 1] == "O":  # checks diagnonal down left
-                self._board[r_check + 1][c_check - 1] = "X"
+                flip_list.append((r_check + 1, c_check - 1))
                 r_check += 1
                 c_check -= 1
+            if self._board[r_check + 1][c_check - 1] == "X":
+                for dl_position in flip_list:
+                    dl_row, dl_column = dl_position
+                    self._board[dl_row][dl_column] = "X"
+            flip_list.clear()
             r_check = 0
             r_check += row
             c_check = 0
             c_check += column
 
             while self._board[r_check - 1][c_check - 1] == "O":  # checks diagnonal up left
-                self._board[r_check - 1][c_check - 1] = "X"
+                flip_list.append((r_check - 1, c_check - 1))
                 r_check -= 1
                 c_check -= 1
+            if self._board[r_check - 1][c_check - 1] == "X":
+                for ul_position in flip_list:
+                    ul_row, ul_column = ul_position
+                    self._board[ul_row][ul_column] = "X"
+            flip_list.clear()
             r_check = 0
             r_check += row
             c_check = 0
@@ -520,60 +561,100 @@ class Othello:
             c_check += column
 
             while self._board[r_check - 1][column] == "X":  # checks up
-                self._board[r_check - 1][column] = "O"
+                flip_list.append((r_check - 1, column))
                 r_check -= 1
+            if self._board[r_check - 1][column] == "O":
+                for u_position in flip_list:
+                    u_row, u_column = u_position
+                    self._board[u_row][u_column] = "O"
+            flip_list.clear()
             r_check = 0
             r_check += row
 
             while self._board[row][c_check + 1] == "X":  # checks right
-                self._board[row][c_check + 1] = "O"
+                flip_list.append((row, c_check + 1))
                 c_check += 1
+            if self._board[row][c_check + 1] == "O":
+                for r_position in flip_list:
+                    r_row, r_column = r_position
+                    self._board[r_row][r_column] = "O"
+            flip_list.clear()
             c_check = 0
             c_check += column
 
             while self._board[r_check + 1][column] == "X":  # checks down
-                self._board[r_check + 1][column] = "O"
+                flip_list.append((r_check + 1, column))
                 r_check += 1
+            if self._board[r_check + 1][column] == "O":
+                for d_position in flip_list:
+                    d_row, d_column = d_position
+                    self._board[d_row][d_column] = "O"
+            flip_list.clear()
             r_check = 0
             r_check += row
 
             while self._board[row][c_check - 1] == "X":  # checks left
-                self._board[row][c_check - 1] = "O"
+                flip_list.append((row, c_check - 1))
                 c_check -= 1
+            if self._board[row][c_check - 1] == "O":
+                for l_position in flip_list:
+                    l_row, l_column = l_position
+                    self._board[l_row][l_column] = "O"
+            flip_list.clear()
             c_check = 0
             c_check += column
 
             while self._board[r_check - 1][c_check + 1] == "X":  # checks diagnonal up right
-                self._board[r_check - 1][c_check + 1] = "O"
+                flip_list.append((r_check - 1, c_check + 1))
                 r_check -= 1
                 c_check += 1
+            if self._board[r_check - 1][c_check + 1] == "O":
+                for ur_position in flip_list:
+                    ur_row, ur_column = ur_position
+                    self._board[ur_row][ur_column] = "O"
+            flip_list.clear()
             r_check = 0
             r_check += row
             c_check = 0
             c_check += column
 
             while self._board[r_check + 1][c_check + 1] == "X":  # checks diagnonal down right
-                self._board[r_check + 1][c_check + 1] = "O"
+                flip_list.append((r_check + 1, c_check + 1))
                 r_check += 1
                 c_check += 1
+            if self._board[r_check + 1][c_check + 1] == "O":
+                for dr_position in flip_list:
+                    dr_row, dr_column = dr_position
+                    self._board[dr_row][dr_column] = "O"
+            flip_list.clear()
             r_check = 0
             r_check += row
             c_check = 0
             c_check += column
 
             while self._board[r_check + 1][c_check - 1] == "X":  # checks diagnonal down left
-                self._board[r_check + 1][c_check - 1] = "O"
+                flip_list.append((r_check + 1, c_check - 1))
                 r_check += 1
                 c_check -= 1
+            if self._board[r_check + 1][c_check - 1] == "O":
+                for dl_position in flip_list:
+                    dl_row, dl_column = dl_position
+                    self._board[dl_row][dl_column] = "O"
+            flip_list.clear()
             r_check = 0
             r_check += row
             c_check = 0
             c_check += column
 
             while self._board[r_check - 1][c_check - 1] == "X":  # checks diagnonal up left
-                self._board[r_check - 1][c_check - 1] = "O"
+                flip_list.append((r_check - 1, c_check - 1))
                 r_check -= 1
                 c_check -= 1
+            if self._board[r_check - 1][c_check - 1] == "O":
+                for ul_position in flip_list:
+                    ul_row, ul_column = ul_position
+                    self._board[ul_row][ul_column] = "O"
+            flip_list.clear()
             r_check = 0
             r_check += row
             c_check = 0
@@ -594,31 +675,32 @@ class Othello:
         the function prints "Game is ended white piece: number black piece: number" and
         calls the return_winner method."""
 
+        positions = self.return_available_positions(player_color)
 
         if self.return_available_positions("white") == [] and self.return_available_positions("black") == []:
             self.return_winner()
             print("Game is ended white piece: " + str(self._white_count) + " black piece: " + str(self._black_count))
 
         if player_color == "black":
-            if piece_position not in self.return_available_positions("black") \
-                    and self.return_available_positions("black") != []:
-                print("Here are the valid moves: " + str(self.return_available_positions("black")))
+            if piece_position not in positions \
+                    and positions != []:
+                print("Here are the valid moves: " + str(positions))
                 return "Invalid move"
 
-            if self.return_available_positions("black") == []:
-                return self.return_available_positions("black")
+            if positions == []:
+                return positions
 
-            if piece_position in self.return_available_positions("black"):
+            if piece_position in positions:
                 self.make_move(player_color, piece_position)
 
         if player_color == "white":
-            if piece_position not in self.return_available_positions("white") \
-                    and self.return_available_positions("white") != []:
-                print("Here are the valid moves: " + str(self.return_available_positions("white")))
+            if piece_position not in positions \
+                    and positions != []:
+                print("Here are the valid moves: " + str(positions))
                 return "Invalid move"
 
-            if self.return_available_positions("white") == []:
-                return self.return_available_positions("white")
+            if positions == []:
+                return positions
 
-            if piece_position in self.return_available_positions("white"):
+            if piece_position in positions:
                 self.make_move(player_color, piece_position)
