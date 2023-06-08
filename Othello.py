@@ -423,6 +423,7 @@ class Othello:
             self.check_diagonal_down_left(color)
             self.check_down(color)
             self.check_diagonal_down_right(color)
+            self._position_list_b.sort()
             return self._position_list_b
 
         if color == "white":
@@ -435,6 +436,7 @@ class Othello:
             self.check_diagonal_down_right(color)
             self.check_down(color)
             self.check_diagonal_down_left(color)
+            self._position_list_w.sort()
             return self._position_list_w
 
     def make_move(self, color, piece_position):
