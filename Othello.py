@@ -415,25 +415,25 @@ class Othello:
 
         if color == "black":
             self._position_list_b = []
-            self.check_up(color)
-            self.check_right(color)
-            self.check_down(color)
-            self.check_left(color)
-            self.check_diagonal_up_right(color)
-            self.check_diagonal_down_right(color)
             self.check_diagonal_up_left(color)
+            self.check_up(color)
+            self.check_diagonal_up_right(color)
+            self.check_left(color)
+            self.check_right(color)
             self.check_diagonal_down_left(color)
+            self.check_down(color)
+            self.check_diagonal_down_right(color)
             return self._position_list_b
 
         if color == "white":
             self._position_list_w = []
-            self.check_up(color)
-            self.check_right(color)
-            self.check_down(color)
-            self.check_left(color)
-            self.check_diagonal_up_right(color)
-            self.check_diagonal_down_right(color)
             self.check_diagonal_up_left(color)
+            self.check_up(color)
+            self.check_diagonal_up_right(color)
+            self.check_left(color)
+            self.check_right(color)
+            self.check_diagonal_down_right(color)
+            self.check_down(color)
             self.check_diagonal_down_left(color)
             return self._position_list_w
 
