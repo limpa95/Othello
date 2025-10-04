@@ -15,13 +15,13 @@ This project allows two people to play text-based Othello (https://en.wikipedia.
 
 **Game Board:**
 The game board is represented by a 10x10 grid as figure 1 shown below.
+![figure_1](https://github.com/limpa95/Othello/blob/main/Picture1.jpg)
 * Edge: * (star)
 * Black piece: X
 * White piece: O
 * Empty space: .  (dot)
 
 Each position on the board could be represented by a (row, column) pair.  For example, at the beginning, white pieces are at position (4,4) and (5,5) and black pieces are at (4,5) and (5,4).
-Your code for the game must define the class and methods described below, but you are encouraged to define other methods or classes that may be useful for the game. All data members must be **private**
 
 **Player:**
 The Player class represents a player in the game. It contains the following information:
@@ -50,6 +50,8 @@ game.print_board()
 ```
 and the output is like figure 2 shows.
 
+![figure_2](https://github.com/limpa95/Othello/blob/main/Picture2.jpg)
+
 As a simple example, your class and methods could be used as follows:
 ```
 game = Othello()
@@ -62,4 +64,6 @@ game.play_game("white", (6,6))
 game.print_board()
 ```
 And the output results will be like figure 3 shows.
+
+![figure_3](https://github.com/limpa95/Othello/blob/main/Picture3.jpg)
 
